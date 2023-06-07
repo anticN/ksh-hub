@@ -1,7 +1,14 @@
 import express from "express";
+import mongoose from "mongoose";
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import cors from "cors";
+import crypto from "crypto";
+/*
+import cors from "cors";
+import "./loadEnvironment.mjs";
+import records from "./routes/record.mjs";
+*/
 
 const app = express();
 const port = 3000;
@@ -9,6 +16,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+// app.use("/record", records);
 
 app.use(session({
   secret: 'secret',
@@ -16,6 +24,24 @@ app.use(session({
   saveUninitialized: false,
   cookie: {}
 }))
+
+mongoose.connect('mongodb://localhost:27017/KSH-Hub',
+  {
+    useNewUrlParser: true
+  }
+);
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  console.log("Connected successfully to MongoDB");
+});
+
+function addUserToDB(user) {
+  db.collection("User").insertOne(user, function (err, res) {
+    if (err) throw err;
+    console.log("1 document inserted");
+  });
+}
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -33,13 +59,48 @@ app.post('/login', (req, res) => {
   }
 });
 
-app.post("/signup", (req, res) => {
+app.get('/signup', (req, res) => {
+  res.send('Frontend is coming soon')
+});
+
+app.post('/signup', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   const credentials = email.split("@");
-  const names = credentials[0].split(".");
-  //const lastName = credentials.split(".")[1]
-  res.send(`Hello ${names[0]} your family ${names[1]}!`);
+
+  if (credentials[1] === "student.ksh.ch") {
+    const names = credentials[0].split(".");
+    const schoolClass = req.body.schoolClass;
+    const goodSubjects = req.body.goodSubjects;
+    const badSubjects = req.body.badSubjects;
+    
+    const user = {
+      vorname: names[0],
+      nachname: names[1],
+      email: email,
+      schoolClass: schoolClass,
+      goodSubjects: goodSubjects,
+      badSubjects: badSubjects,
+      coins: 10,
+      amntHelpTaken: 0,
+      amntHelpGiven: 0,
+      ratings: [],
+      warnings: 0,
+      salt: hashpw().salt,
+      hashed: hashpw().hashed
+    }
+    addUserToDB(user);
+    res.send(`Hello ${names[0]} ${names[1]}! your acc has been created with hashed password: ${hashpw()}`);
+  } else {
+    res.status(401).send("Du musst deine KSH-Mail verwenden!");
+  }
+
+  function hashpw() {
+    const salt = crypto.randomBytes(16).toString("hex")
+    const hashed = crypto.pbkdf2Sync(password, salt, 1000, 64, "sha512").toString("hex")
+
+    return {salt, hashed}
+  }
 });
 
 
