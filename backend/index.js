@@ -19,23 +19,28 @@ app.use(session({
   cookie: {}
 }))
 
+//Connection to MongoDB
 mongoose.connect('mongodb://localhost:27017/KSH-Hub',
   {
     useNewUrlParser: true
   }
 );
+
+//Check if connection to MongoDB is established
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
   console.log("Connected successfully to MongoDB");
 });
 
+//hashing function for passwords with salt and crypto module
 function hashpw(password) {
   const salt = crypto.randomBytes(16).toString("hex")
   const hashed = crypto.pbkdf2Sync(password, salt, 1000, 64, "sha512").toString("hex")
   return { salt, hashed }
 }
 
+//function to add user to DB
 function addUserToDB(user) {
   db.collection("User").insertOne(user, function (err, res) {
     if (err) throw err;
@@ -48,10 +53,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
+//signup page with form
 app.get('/signup', (req, res) => {
-  res.sendFile("/frontend/registration/index.html")
+  res.send("Signup page")
+  //res.sendFile("C:\\Users\\Nikola\\OneDrive - Bildungszentrum Zürichsee\\Dokumente\\IMS\\FS 2023 (4 von 6)\\BZZ\\M 426 Agile Methoden SCRUM etc\\ksh-hub\\frontend\\index.html")
 });
 
+//login process, checks if user exists and if password is correct
 app.post("/login", (req, res) => {
   const password = req.body.password
   const Uemail = req.body.email
@@ -73,9 +81,10 @@ app.post("/login", (req, res) => {
         res.status(401).send("User invalid")
       } 
     }
-  })
-})
+  });
+});
 
+//signup process, checks if user exists, if the email format is valid and creates a new account
 app.post("/signup", function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
@@ -83,6 +92,7 @@ app.post("/signup", function (req, res) {
   db.collection("User").findOne({ email: req.body.email }, (error, result) => {
     //const checkMail = req.body.email
     if (result) {
+      // TODO: add 2nd collection to save all time emails so user cannot create multiple accounts with same email
       res.status(401).json({ error: "Email already used" });
     } else {
       if (credentials[1] === "student.ksh.ch") {
@@ -116,6 +126,7 @@ app.post("/signup", function (req, res) {
   });
 });
 
+//listener for the current port
 app.listen(port, () => {
-  console.log(`Server running on port: ${port}`)
+  console.log(`Server running on port: ${port}`);
 })
