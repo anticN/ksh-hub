@@ -6,4 +6,5 @@ Die Applikation ist eine Webapplikation, bei welcher die Schüler der KSH sich e
 ## Technologien
 - Frontend: HTML/CSS/JS
 - Backend: Express JS 
-- Datenbank: MongoDB/mySQL
+- Datenbank: MongoDB
+
