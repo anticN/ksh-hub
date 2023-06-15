@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    <link rel="icon" href="/images/Logo_form.png">
     <title>KSHub - Startseite</title>
 </head>
 <body>
@@ -15,21 +16,54 @@
         <nav>
             <ul>
                 <li>
-                    <div class="logo">
-                        <img src="./images/Logo_form.png" alt="">
+                    <a class="logo"href="index.html">
+                        <img src="./images/Logo_form.png" alt="logo">
                         <h1>KSHub</h1>
-                    </div>
+                    </a>
                 </li>
-                <li><a href="/login/">Login</a></li>
-                <li><a href="/registration/">Registrieren</a></li>
+                <li class="notLoggedIn"><a href="/login/">Login</a></li>
+                <li class="notLoggedIn"><a href="/registration/" class="marked">Registrieren</a></li>
+                <li class="loggedIn"><a href="">login(false)</a></li>
+                <li class="loggedIn"><a href="/profile/" class="profilePicture">
+                    <img src="/images/profile.jpeg" alt="profile picture" class="profilePicture">
+                </a></li>
             </ul>
         </nav>
     </header>
     <main>
-        
+        <section id="section-1">
+            <h1>Grid-1</h1>
+        </section>
+        <section id="section-2">
+            <h1>Grid-2</h1>
+        </section>
     </main>
     <footer>
-        
+        <ul>
+            <li>
+                <h2>Über uns</h2>
+                <a href="">Über uns</a>
+                <a href="">Über uns</a>
+                <a href="">Über uns</a>
+                <a href="">Über uns</a>
+            </li>
+            <li>
+                <h2>Kontakte</h2>
+                <a href="">Kontakt</a>
+                <a href="">Kontakt</a>
+                <a href="">Kontakt</a>
+                <a href="">Kontakt</a>
+                <a href="">Kontakt</a>
+                <a href="">Kontakt</a>
+            </li>
+            <li>
+                <h2>Links</h2>
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+                <a href="">Link</a>
+            </li>
+        </ul>
     </footer>
 </body>
 </html>
