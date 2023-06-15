@@ -1,21 +1,27 @@
 :root {
-    --background-color: #9cb49e;
+    --primary: #F6F1D1;
+    --secondary: #CFD7C7;
+    --primary-text: #0B2027;
+    --secondary-text: #40798C;
+    --marked: #70A9A1;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font: 1rem 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
 
+/* header */
+
 a {
+    color: var(--primary-text);
     text-decoration: none;
-    color: #000;
 }
 
 body {
-    background-color: var(--background-color);
+    background-color: var(--primary);
 }
 
 nav ul {
@@ -26,7 +32,7 @@ nav ul {
     justify-content: flex-end;
     align-items: center;
     list-style: none;
-    background-color: #77ffbf;
+    background-color: var(--secondary);
 }
 
 nav ul li:first-child {
@@ -34,24 +40,57 @@ nav ul li:first-child {
 }
 
 nav ul li {
-    padding: 0 2rem;
+    padding: 0rem 2rem;
+    height: 70%;
 }
 
+nav ul li a {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a:hover {
+    text-underline-offset: 5px;
+    text-decoration: underline;
+}
+
+.profilePicture {
+    height: 100%;
+}
+
+.loggedIn {
+    display: none;
+}
+
+.marked {
+    background-color: var(--marked);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--primary-text);
+}
+
+/* Logo */
+
 .logo {
-    height: 8vh;
-    padding: 0.5vh;
+    height: 100%;
+    padding: 0vh;
     border-radius: 0px;
     display: flex;
     align-items: center;
 }
 
+.logo:hover {    
+    text-decoration: none;
+}
+
 .logo img {
     height: 100%;
-    border-right: 3px solid #000;
+    border-right: 4px solid #000;
 }
 
 .logo h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     padding-left: 1rem;
     color: #000;
     text-decoration: none;
@@ -61,4 +100,57 @@ nav ul li {
 .logo h1 {
     padding: 0 1rem;
     border-radius: 0px;
+}
+.profilePicture {
+    margin-right: 2vw;
+}
+
+/* Main */
+
+main {
+    
+}
+
+main section {
+    margin: 10% 10%;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--primary-text);
+    color: var(--secondary);
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 2rem 0;
+    padding: 1rem 3rem;
+    min-height: 100%;
+    border-right: 1px solid var(--secondary);
+    border-left: 1px solid var(--secondary);
+    display: flex;
+    flex-direction: column;
+}
+
+footer ul li:last-child {
+    border-right: none;
+}
+
+footer ul li:first-child {
+    border-left: none;
+}
+
+footer ul li h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer ul li a,
+footer ul li h2 {
+    color: var(--secondary);
 }
