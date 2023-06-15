@@ -1,7 +1,20 @@
+:root {
+    --primary: #F6F1D1;
+    --secondary: #CFD7C7;
+    --primary-text: #0B2027;
+    --secondary-text: #40798C;
+    --marked: #70A9A1;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    width: 100vw;
+    overflow: hidden;
 }
 
 body {
@@ -19,9 +32,15 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(211, 211, 211);
+    background-color: var(--secondary);
     border-radius: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.logo {
+    margin-bottom: 20%;
+    height: 20%;
+    text-decoration: none;
 }
 
 form {
@@ -46,7 +65,25 @@ input {
 }
 
 input[type=submit]:hover {
-    background-color: #d9eeda;
+    background-color: var(--marked);
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+
+a {
+    text-decoration: underline;
+    color: var(--primary-text);
+    align-self: flex-start;
+    padding-left: 5%;
+}
+
+a:hover {
+    color: var(--marked);
+}
+
+#bg-picture {
+    position: absolute;
+    height: 100vh;
+    opacity: 0.15;
+    z-index: -1;
 }
