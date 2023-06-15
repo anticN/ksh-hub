@@ -1,0 +1,54 @@
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 92vh;
+
+}
+
+.content {
+    width: 80vw;
+    padding: 2vh 2vw;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    border: 1px solid black;
+}
+.content a{
+    width: fit-content;
+    text-decoration: none;
+    color: var(--primary-text);
+    background-color: var(--secondary);
+    padding: 1vh 1.5vw;
+    border-radius: 5px;
+}
+.content h1 {
+    color: var(--primary-text);
+    font-size: 2rem;
+    font-weight: 500; 
+}
+
+.content h3 {
+    color: var(--primary-text);
+    font-size: 1.5rem;
+    font-weight: 500;    
+}
+
+.profile-list {
+    width: 100%;
+    height: 25vh;
+    overflow-x: scroll;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1vw;
+}
+.profile-list .profiles {
+    height: 100%;
+    width: 10vw;
+    border: 1px solid black;
+    display: flex;
+    border-radius: 10px;
+}
