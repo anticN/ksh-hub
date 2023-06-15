@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../login/styles.css">
-    <link rel="stylesheet" href="../styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../login/styles.css" />
     <script src="script.js" type="javascript"></script>
+    <link rel="icon" href="/images/Logo_form.png" />
     <title>Registrieren</title>
-</head>
-
-<body>
+  </head>
+  <body>
+    <img src="../images/help.png" alt="bg" id="bg-picture">
     <div id="container">
-
-        <form action="../index.html">
-            <a href="../index.html">
-                <div class="logo">
-                    <img src="../images/Logo_form.png" alt="">
-                    <h1>KSHub</h1>
-                </div>
-            </a>
-            <input type="text" name="name" id="name" placeholder="Email">
-            <input type="klasse" name="klass" id="klasse" placeholder="Klasse">
-            <input type="password" name="password" id="password" placeholder="Password">
-            <input type="submit" value="Registrieren">
-        </form>
+      <form action="../index.html">
+        <a href="../index.html">
+          <a class="logo" href="..">
+            <img src="../images/Logo_form.png" alt="" />
+            <h1>KSHub</h1>
+          </a>
+        </a>
+        <input type="email" name="name" id="name" placeholder="Email" required />
+        <input type="text" name="klass" id="klasse" placeholder="Klasse" required />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+          required 
+          minlength="8"
+        />
+        <input type="submit" value="Registrieren" />
+        <a href="/login/">Anmelden</a>
+      </form>
     </div>
-</body>
+  </body>
 </html>
