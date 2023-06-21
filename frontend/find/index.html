@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <script src="./script.js"></script>
     <link rel="icon" href="/images/Logo_form.png">
     <title>KSHub - Startseite</title>
@@ -17,33 +18,31 @@
             <ul>
                 <li>
                     <a class="logo"href="index.html">
-                        <img src="./images/Logo_form.png" alt="logo">
+                        <img src="../images/Logo_form.png" alt="logo">
                         <h1>KSHub</h1>
                     </a>
                 </li>
-                <li class="notLoggedIn"><a href="/login/">Login</a></li>
-                <li class="notLoggedIn"><a href="/registration/" class="marked">Registrieren</a></li>
-                <li class="loggedIn"><a href="">Abmelden</a></li>
-                <li class="loggedIn"><a href="/profile/" class="profilePicture">
+                <li class="notLoggedIn"><a href="../login/">Login</a></li>
+                <li class="notLoggedIn"><a href="../registration/" class="marked">Registrieren</a></li>
+                <li class="loggedIn"><a href="../">Abmelden</a></li>
+                <li class="loggedIn"><a href="../profile/" class="profilePicture">
                     <img src="/images/profile.jpeg" alt="profile picture" class="profilePicture">
                 </a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="section-1">
-            <h1>News</h1>
-            <div id="card1">Card1</div>
-            <div id="card2">Card2</div>
-            <div id="card3">Card3</div>
-            <div id="card4">Card4</div>
-            <div id="card5">Card5</div>
-            <div id="card6">Card6</div>
-            <div id="card7">Card7</div>
-        </section>
-        <section id="section-2">
-            <h1>Grid-2</h1>
-        </section>
+       <form action="">
+            <input type="text" placeholder="Suche...">
+            <!-- dropdown with selectable filter checkbox -->
+            <button>
+                <img src="../images/filter.png" alt="filter">
+            </button>
+            <input type="submit" value="Suchen">
+       </form>
+       <section>
+
+       </section>
     </main>
     <footer>
         <ul>

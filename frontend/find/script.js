@@ -1,5 +1,5 @@
 function checkLoggedIn() {
-    return false;
+    return true;
 }
 
 document.addEventListener('DOMContentLoaded', function() {

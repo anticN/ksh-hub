@@ -1,0 +1,11 @@
+form {
+    border: none;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form input {
+    border: none;
+    padding: 10px;
+    border-radius: 100px;
+}
