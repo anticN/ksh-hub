@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <link rel="icon" href="/images/Logo_form.png" />
     <title>Login</title>
   </head>
@@ -14,22 +14,27 @@
   <body>
     <img src="../images/help.png" alt="bg" id="bg-picture" />
     <div id="container">
-      <form action="../index.html">
+      <form id="loginform">
         <a class="logo" href="..">
           <img src="../images/Logo_form.png" alt="LOGO" />
           <h1>KSHub</h1>
         </a>
-        <input type="email" name="name" id="name" placeholder="Email" required />
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          placeholder="Email" 
+          required />
         <input
           type="password"
           name="password"
           id="password"
           placeholder="Password"
           required 
-          minlength="8"
+          minlength="4"
         />
         <input type="submit" value="Login" />
-        <a href="/registration/">Konto erstellen</a>
+        <a href="../registration/">Konto erstellen</a>
       </form>
     </div>
   </body>
