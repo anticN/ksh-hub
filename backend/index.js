@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import cors from "cors";
 import crypto from "crypto";
+import path from "path";
+//import {main} from "./utils/sendEmailTest.js";
+
 
 const app = express();
 const port = 3000;
@@ -50,12 +53,13 @@ function addUserToDB(user) {
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.sendFile("../frontend/index.html")
 });
 
 //signup page with form
 app.get('/signup', (req, res) => {
-  res.send("Signup page")
+  //res.send("Signup page")
+  res.sendFile("../frontend/index.html")
   //res.sendFile("C:\\Users\\Nikola\\OneDrive - Bildungszentrum Zürichsee\\Dokumente\\IMS\\FS 2023 (4 von 6)\\BZZ\\M 426 Agile Methoden SCRUM etc\\ksh-hub\\frontend\\index.html")
 });
 
@@ -76,7 +80,9 @@ app.post("/login", (req, res) => {
       const userpasswd = crypto.pbkdf2Sync(password, userSalt, 1000, 64, "sha512").toString("hex")
 
       if (userpasswd === userHash) {
-        res.status(200).send("User valid")
+        //res.status(200).send({content: "User valid"})
+        res.send({content: "User valid"})
+        req.session.loggedin = true;
       } else {
         res.status(401).send("User invalid")
       } 
@@ -115,10 +121,13 @@ app.post("/signup", function (req, res) {
           ratings: [],
           warnings: 0,
           salt: passwd_hash.salt,
-          hashed: passwd_hash.hashed
+          hashed: passwd_hash.hashed,
+          verified: false
         }
+        //main(email, "KSHub: Account verification", "Hello, your account has successfully been created!").catch(console.error);
         addUserToDB(user);
         res.send(`Hello ${names[0]} ${names[1]}! your acc has been created with hashed password:`);
+        req.session.loggedin = true;
       } else {
         res.status(401).send("Du musst deine KSH-Mail verwenden!");
       }
