@@ -150,7 +150,6 @@ section h1 {
 }
 
 #section-1 div:hover {
-    transform: scale(1.1);
     border: 5px solid var(--marked);
 }
 

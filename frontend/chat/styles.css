@@ -68,3 +68,17 @@ main {
 #chats li {
     font-family: sans-serif;
 }
+
+#input {
+    height: 25px;
+    width: 700px;
+}
+
+#send {
+    width: 70px;
+    background-color: dodgerblue;
+    border-style: none;
+    border-color: dodgerblue;
+    height: 30px;
+    border-radius: 10%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="../profile/styles.css">
+        <link rel="icon" href="/images/Logo_form.png">
+        <title>Einstellungen</title>
+    </head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a class="logo"href="index.html">
+                        <img src="../images/Logo_form.png" alt="logo">
+                        <h1>KSHub</h1>
+                    </a>
+                </li>
+                    <img src="../images/profile.jpeg" alt="profile picture" class="profilePicture">
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    <div class="content">
+        <button type="button" onclick="history.back();">Zurück</button>
+        <div id="profile">
+            <div id="fixed-information">
+                <label class="custom-file-upload">
+                    <input type="file"/>
+                    <img src="../images/profile.jpeg" alt="Profile-Picture">
+                </label>
+                <div id="personal-information">
+                    <h1>Mohamed Mustafa</h1>
+                    <h2>mohamed.mustafa@student.ksh.ch</h2>
+                    <h2 class="rating">Rating</h2>
+                </div>
+            </div>
+            <form action="">
+                <label for="Math">Math</label>
+                <input type="range" name="Math" id="Math">
+            </form>
+        </div>
+    </div>
+    <div class="flexbox">
+        <div class="sidebar">
+            <ul class="sidelist">
+                <li> <a href="../profile/">Profile</a></li>
+                <li><a href="../matches/">Matches</a></li>
+                <li><a href="../chat/">Chats</a></li>
+                <li><a style="font-weight: bold;" href="../settings/">Einstellungen</a></li>
+            </ul>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

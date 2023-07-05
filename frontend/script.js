@@ -1,11 +1,11 @@
-function checkLoggedIn() {
+function verify() {
     return false;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     const loggedIn = document.querySelectorAll('.loggedIn');
 
-    if (checkLoggedIn()) {
+    if (verify()) {
         const notLoggedIn = document.querySelectorAll('.notLoggedIn');
         notLoggedIn.forEach(element => {
             element.style.display = 'none';
